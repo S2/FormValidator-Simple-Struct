@@ -50,7 +50,9 @@
          "requires" : {
             "Class::Load" : "0",
             "Email::Valid" : "0",
-            "Test::More" : "0.98"
+            "Test::Exception" : "0",
+            "Test::More" : "0.98",
+            "Time::Piece" : "0"
          }
       }
    },
@@ -65,7 +67,7 @@
          "web" : "https://github.com/S2/FormValidator-Simple-Struct"
       }
    },
-   "version" : "0.10",
+   "version" : "0.11",
    "x_contributors" : [
       "S2 <s2otsa@hotmail.com>",
       "sato sin <shinichiro@wano.co.jp>"

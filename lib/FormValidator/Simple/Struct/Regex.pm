@@ -5,7 +5,7 @@ use warnings;
 use Email::Valid;
 use Time::Piece;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 use base 'Exporter';
 our @EXPORT= qw/NOT_BLANK INT ASCII STRING DECIMAL EMAIL DATETIME DATE TIME TINYINT URL LENGTH BETWEEN/;
@@ -143,7 +143,7 @@ FormValidator::Simple::Struct::Regex - Plugin for FormValidator::Simple::Struct
 
 =head1 VERSION
 
-This document describes FormValidator::Simple::Struct::Regex version 0.10.
+This document describes FormValidator::Simple::Struct::Regex version 0.11.
 
 =head1 SYNOPSIS
 
