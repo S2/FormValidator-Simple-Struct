@@ -2,6 +2,9 @@ Revision history for Perl extension FormValidator-Simple-Struct
 
 {{$NEXT}}
 
+0.10 2013-10-21T06:41:39Z
+    - add requires
+
 0.09 2013-10-19T06:44:11Z
 
     - original version
