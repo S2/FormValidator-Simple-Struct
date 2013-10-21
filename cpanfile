@@ -6,5 +6,6 @@ on 'test' => sub {
     requires 'Class::Load' , '0';
     requires 'Time::Piece' , '0';
     requires 'Test::Exception' , '0';
+    requires 'Hash::MultiValue' , '0';
 };
 
