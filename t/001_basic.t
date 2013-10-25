@@ -83,9 +83,16 @@ ok $v->check({hoge => 111 , fuga => "fuga"},{hoge => "INT" , fuga => "ASCII"});
 ok !$v->check({hoge => "fuga" , fuga => "fuga" },{hoge => "INT" , fuga => "INT"});
 ok $v->has_error;
 is $v->get_error->[0]{message},INVALID('INT');
-is $v->get_error->[0]{position},'$param->{fuga}';
 is $v->get_error->[1]{message},INVALID('INT');
-is $v->get_error->[1]{position},'$param->{hoge}';
+
+# hash randomization
+if($v->get_error->[0]{position} eq '$param->{fuga}'){
+    is $v->get_error->[0]{position},'$param->{fuga}';
+    is $v->get_error->[1]{position},'$param->{hoge}';
+}else{
+    is $v->get_error->[0]{position},'$param->{hoge}';
+    is $v->get_error->[1]{position},'$param->{fuga}';
+}
 
 # nested ref
 ok $v->check({hoge => [qw/111 222 333/] , fuga => "fuga" },{hoge => ['INT'] , fuga=> "ASCII"});
