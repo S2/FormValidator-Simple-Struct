@@ -2,6 +2,9 @@ Revision history for Perl extension FormValidator-Simple-Struct
 
 {{$NEXT}}
 
+0.13 2013-10-25T04:54:39Z
+    - fix can't pass tests on 5.18 ,the reason why hash randomization
+
 0.12 2013-10-22T02:15:31Z
     - add Hash::MultiValue
 

@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use utf8;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 use base 'Exporter';
 our @EXPORT= qw/ALLOWCHARACTER::SPACE/;
@@ -23,7 +23,7 @@ FormValidator::Simple::Struct::AllowCharacter
 
 =head1 VERSION
 
-This document describes FormValidator::Simple::Struct::AllowCharacters version 0.12.
+This document describes FormValidator::Simple::Struct::AllowCharacters version 0.13.
 
 =head1 SYNOPSIS
 
