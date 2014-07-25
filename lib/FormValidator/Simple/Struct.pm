@@ -20,6 +20,7 @@ sub REF {'excepted ref'};
 sub INVALID{'excepted ' . $_[0]};
 
 sub LENGTH_ERROR{'LENGTH IS WRONG'};
+sub DIGIT_LENGTH_ERROR{'DIGIT_LENGTH IS WRONG'};
 sub BETWEEN_ERROR{'BETWEEN IS WRONG'};
 sub CHARS_ERROR{'NOT ALLOWED CHAR EXIST'};
 
@@ -154,6 +155,15 @@ sub _check{
                                 }else{
                                     $message = BETWEEN_ERROR;
                                 }
+                                $self->_set_error($message, $position , $name , $type, $min , $max);
+                            }
+                        }elsif($type eq 'DIGIT_LENGTH'){
+                            no strict;
+
+                            my $code = $self->can($type);
+                            die NO_SUCH_CHAR_TYPE($type) unless $code;
+                            unless($code->($param,$min,$max)){
+                                my $message = DIGIT_LENGTH_ERROR;
                                 $self->_set_error($message, $position , $name , $type, $min , $max);
                             }
                         }elsif($type eq 'CHARTYPE'){

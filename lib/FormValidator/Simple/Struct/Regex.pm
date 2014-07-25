@@ -8,7 +8,7 @@ use Time::Piece;
 our $VERSION = '0.13';
 
 use base 'Exporter';
-our @EXPORT= qw/NOT_BLANK INT ASCII STRING DECIMAL EMAIL DATETIME DATE TIME TINYINT URL LENGTH BETWEEN/;
+our @EXPORT= qw/NOT_BLANK INT ASCII STRING DECIMAL EMAIL DATETIME DATE TIME TINYINT URL LENGTH BETWEEN DIGIT_LENGTH/;
 
 sub NOT_BLANK{
     my $s = shift;
@@ -113,6 +113,17 @@ sub LENGTH{
     my ($s , $min , $max) = @_;
     my $len = length($s);
     if($len == 0 or $len >= $min and $len <= $max){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+sub DIGIT_LENGTH{
+    my ($s , $integer , $decimal) = @_;
+    my ($integer_value , $decimal_value) = $s =~ m/(\d+)\.(\d+)/;
+
+    if(length($integer_value) <= $integer && length($decimal_value) <= $decimal){
         return 1;
     }else{
         return 0;
