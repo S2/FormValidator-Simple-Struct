@@ -4,7 +4,7 @@
       "S2 <s2otsa59@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.8.0, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Minilla/v0.11.0, CPAN::Meta::Converter version 2.130880",
    "license" : [
       "perl_5"
    ],
@@ -68,7 +68,7 @@
          "web" : "https://github.com/S2/FormValidator-Simple-Struct"
       }
    },
-   "version" : "0.13",
+   "version" : "0.14",
    "x_contributors" : [
       "S2 <s2otsa@hotmail.com>",
       "sato sin <shinichiro@wano.co.jp>"

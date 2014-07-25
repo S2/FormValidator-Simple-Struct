@@ -9,7 +9,7 @@ use Test::More;
 use Data::Dumper;
 use Class::Load;
 
-our $VERSION = '0.13';
+our $VERSION = '0.14';
 
 # static values
 sub HASHREF {'excepted hash ref'};
@@ -250,7 +250,7 @@ FormValidator::Simple::Struct - Validation module for nested array ,hash ,scalar
 
 =head1 VERSION
 
-This document describes FormValidator::Simple::Struct version 0.13.
+This document describes FormValidator::Simple::Struct version 0.14.
 
 =head1 SYNOPSIS
 
