@@ -34,6 +34,11 @@ ok $v->check({hoge =>  "∀" },{hoge=> [['CHARTYPE' , 'MATH']]});
 
 ok $v->check({hoge =>  "Ⅳ" },{hoge=> [['CHARTYPE' , 'NUMBER']]});
 
+ok $v->check({hoge =>  "abcdezABCDEZ" },{hoge=> [['CHARTYPE' , 'ALPHABET']]});
+ok $v->check({hoge =>  "ABCDEZabcdez" },{hoge=> [['CHARTYPE' , 'ALPHABET']]});
+ok !$v->check({hoge =>  "1abcdezABCDEZ" },{hoge=> [['CHARTYPE' , 'ALPHABET']]});
+ok $v->check({hoge =>  "abcdezABCDEZ111" },{hoge=> [['CHARTYPE' , 'NUMBER' , 'ALPHABET']]});
+
 ok $v->check("あ",['CHARTYPE' , 'HIRAGANA']);
 
 ok $v->check("†",['CHARTYPE' , 'PUNCTUATION']);
