@@ -25,4 +25,21 @@ ok !$v->check({hoge => 4  },{hoge=> ["INT","NOT_BLANK" , ['BETWEEN' , 5]]});
 ok $v->check({},{hoge=> ["INT", ['BETWEEN' , 5]]});
 ok !$v->check({},{hoge=> ["INT", 'NOT_BLANK',['BETWEEN' , 5]]});
 
+# fuga : 1 ~ 10
+ok $v->check({hoge => 10 , fuga => 1} , {
+        hoge => ["INT","NOT_BLANK" , ['BETWEEN' , 1 , 15]] , 
+        fuga => ["INT","NOT_BLANK" , ['BETWEEN' , 1 , "hoge"]] , 
+    });
+ok $v->check({hoge => 10 , fuga => 10} , {
+        hoge => ["INT","NOT_BLANK" , ['BETWEEN' , 1 , 15]] , 
+        fuga => ["INT","NOT_BLANK" , ['BETWEEN' , 1 , "hoge"]] , 
+    });
+ok !$v->check({hoge => 10 , fuga => 20} , {
+        hoge => ["INT","NOT_BLANK" , ['BETWEEN' , 1 , 15]] , 
+        fuga => ["INT","NOT_BLANK" , ['BETWEEN' , 1 , "hoge"]] , 
+    });
+ok !$v->check({hoge => 10 , fuga => 0} , {
+        hoge => ["INT","NOT_BLANK" , ['BETWEEN' , 1 , 15]] , 
+        fuga => ["INT","NOT_BLANK" , ['BETWEEN' , 1 , "hoge"]] , 
+    });
 done_testing;
