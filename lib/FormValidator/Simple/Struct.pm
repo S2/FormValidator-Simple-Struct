@@ -9,7 +9,7 @@ use Test::More;
 use Data::Dumper;
 use Class::Load;
 
-our $VERSION = '0.14';
+our $VERSION = '0.15';
 
 # static values
 sub HASHREF {'excepted hash ref'};
@@ -137,10 +137,10 @@ sub _check{
                 for(@$rule){
                     if (ref $_ eq 'ARRAY'){
                         my ($type , $min , $max) = @$_;
-                        unless($min =~ /^\d+\.\d+$|^\d+$/){
+                        if($min && $min !~ /^\d+\.\d+$|^\d+$/){
                             $min = $parent_params->{$min}
                         }
-                        unless($max =~ /^\d+\.\d+$|^\d+$/){
+                        if($max && $max !~ /^\d+\.\d+$|^\d+$/){
                             $max = $parent_params->{$max}
                         }
 
@@ -256,7 +256,7 @@ FormValidator::Simple::Struct - Validation module for nested array ,hash ,scalar
 
 =head1 VERSION
 
-This document describes FormValidator::Simple::Struct version 0.14.
+This document describes FormValidator::Simple::Struct version 0.15.
 
 =head1 SYNOPSIS
 

@@ -2,6 +2,9 @@ Revision history for Perl extension FormValidator-Simple-Struct
 
 {{$NEXT}}
 
+0.15 2014-10-16T02:31:17Z
+    - change BETWEEN implement
+
 0.14 2014-07-25T05:36:11Z
     - add decimal length check method
 
