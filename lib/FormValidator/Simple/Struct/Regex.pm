@@ -122,6 +122,8 @@ sub LENGTH{
 sub DIGIT_LENGTH{
     my ($s , $integer , $decimal) = @_;
     my ($integer_value , $decimal_value) = $s =~ m/(\d+)\.(\d+)/;
+    $integer_value ||= "";
+    $decimal_value ||= "";
 
     if(length($integer_value) <= $integer && length($decimal_value) <= $decimal){
         return 1;
