@@ -52,6 +52,7 @@ sub EMAIL{
 sub DATETIME{
     my $s = shift;
     return 1 unless $s;
+    return 0 unless $s =~ m!^\d{4}(?:-|/)\d{2}(?:-|/)\d{2} \d{2}(?::|-)\d{2}(?::|-)\d{2}$!;
     eval{
         Time::Piece->strptime($s , "%Y-%m-%d %H:%M:%S");
     };

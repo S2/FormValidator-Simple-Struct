@@ -67,6 +67,8 @@ ok FormValidator::Simple::Struct::Regex::DATETIME("2012/12/20 00-23-59");
 ok !FormValidator::Simple::Struct::Regex::DATETIME("2012-12-20 24:28:59");
 ok !FormValidator::Simple::Struct::Regex::DATETIME("2012-12-32 00:23:59");
 ok !FormValidator::Simple::Struct::Regex::DATETIME("aaaaa");
+ok !FormValidator::Simple::Struct::Regex::DATETIME("2012-12-32 00:23:59 aaaa ");
+ok !FormValidator::Simple::Struct::Regex::DATETIME("2012-12-32 aaa 00:23:59");
 
 ok FormValidator::Simple::Struct::Regex::DATE("2012-12-20");
 ok FormValidator::Simple::Struct::Regex::DATE("2012/12/20");
