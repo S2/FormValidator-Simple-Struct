@@ -339,7 +339,7 @@ This document describes FormValidator::Simple::Struct version 0.15.
  
  # not allow multi bytes characters
  ng $v->check(
-    ["あ" , "漢字"],
+    [Non-ASCII character],
     ["ASCII"]);
 
 =head2 DECIMAL

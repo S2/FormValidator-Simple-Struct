@@ -200,7 +200,7 @@ This module provides some validate methods based on regex
  
  # not allow multi bytes characters
  ng $v->check(
-    ["あ" , "漢字"],
+    [Non-ASCII character],
     ["ASCII"]);
 
 =head3 DECIMAL
