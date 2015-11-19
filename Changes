@@ -2,6 +2,9 @@ Revision history for Perl extension FormValidator-Simple-Struct
 
 {{$NEXT}}
 
+0.16 2015-11-19T08:39:46Z
+    - change DATETIME check regex
+
 0.15 2014-10-16T02:31:17Z
     - change BETWEEN implement
 

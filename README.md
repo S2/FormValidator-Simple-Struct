@@ -4,7 +4,7 @@ FormValidator::Simple::Struct - Validation module for nested array ,hash ,scalar
 
 # VERSION
 
-This document describes FormValidator::Simple::Struct version 0.15.
+This document describes FormValidator::Simple::Struct version 0.16.
 
 # SYNOPSIS
 
@@ -14,7 +14,6 @@ This document describes FormValidator::Simple::Struct version 0.15.
     $rule = {id => 'INT'};
     $v->check($parameters , $rule)
     
-
     if($v->has_error){
         for my $error(@{$v->get_error}){
             die($error->{param_name} . ' is not ' . $error->{error});
@@ -86,10 +85,9 @@ This document describes FormValidator::Simple::Struct version 0.15.
        ["111" , 'abcde!"#$%%()'],
        ["ASCII"]);
     
-
     # not allow multi bytes characters
     ng $v->check(
-       ["あ" , "漢字"],
+       [Non-ASCII character],
        ["ASCII"]);
 
 ## DECIMAL
@@ -176,7 +174,7 @@ to cpan-RT.
 
 # SEE ALSO
 
-[perl](http://search.cpan.org/perldoc?perl)
+[perl](https://metacpan.org/pod/perl)
 
 # AUTHOR
 
