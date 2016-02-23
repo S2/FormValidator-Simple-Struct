@@ -2,6 +2,9 @@ Revision history for Perl extension FormValidator-Simple-Struct
 
 {{$NEXT}}
 
+0.18 2016-02-23T09:08:40Z
+    - add BOOLEAN to export methods
+
 0.17 2016-02-23T08:49:38Z
     - add BOOLEAN check method
 
