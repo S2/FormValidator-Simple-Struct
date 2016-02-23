@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use utf8;
 
-our $VERSION = '0.16';
+our $VERSION = '0.17';
 
 use base 'Exporter';
 our @EXPORT= qw/CHARTYPE::HIRAGANA CHARTYPE::KATAKANA CHARTYPE::KANJI CHARTYPE::GREEK CHARTYPE::ASCII CHARTYPE::CYRILLIC CHARTYPE::MATH CHARTYPE::NUMBER CHARTYPE::ALPHABET CHARTYPE::PUNCTUATION/;
@@ -59,7 +59,7 @@ FormValidator::Simple::Struct::AllowChars - Plugin for FormValidator::Simple::St
 
 =head1 VERSION
 
-This document describes FormValidator::Simple::Struct::AllowChars version 0.16.
+This document describes FormValidator::Simple::Struct::AllowChars version 0.17.
 
 =head1 SYNOPSIS
 

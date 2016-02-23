@@ -4,7 +4,7 @@ FormValidator::Simple::Struct - Validation module for nested array ,hash ,scalar
 
 # VERSION
 
-This document describes FormValidator::Simple::Struct version 0.16.
+This document describes FormValidator::Simple::Struct version 0.17.
 
 # SYNOPSIS
 
