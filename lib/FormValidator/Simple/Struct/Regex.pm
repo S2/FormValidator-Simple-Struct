@@ -25,6 +25,16 @@ sub INT{
     $s =~ m/^\d+$|^-\d+$/;
 }
 
+sub BOOLEAN{
+    my $s = shift;
+    $s = lc $s;
+    
+    my $allow_strings = {
+        map{$_ => 1}qw/1 0 true false yes no /
+    };
+    return $allow_strings->{$s}
+}
+
 sub ASCII{
     my $s = shift;
     return 1 unless $s;
