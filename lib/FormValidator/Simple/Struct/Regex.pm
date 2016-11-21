@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use Email::Valid;
 use Time::Piece;
+use utf8;
 
 our $VERSION = '0.18';
 
@@ -145,6 +146,7 @@ sub DIGIT_LENGTH{
 
 sub BETWEEN{
     my ($s , $min , $max) = @_;
+    $s =~ tr/０-９/0-9/;
     if($s >= $min and $s <= $max){
         return 1;
     }else{

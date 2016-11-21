@@ -1,6 +1,7 @@
 #!perl -w
 use strict;
 use Test::More;
+use utf8;
 
 use FormValidator::Simple::Struct;
 
@@ -18,6 +19,11 @@ ok $v->check({hoge =>  15 },{hoge=> ["INT","NOT_BLANK" , ['BETWEEN' , 1 , 15]]})
 ok $v->check({hoge =>  1 },{hoge=> ["INT","NOT_BLANK" , ['BETWEEN' , 1 , 15]]});
 ok !$v->check({hoge =>  16 },{hoge=> ["INT","NOT_BLANK" , ['BETWEEN' , 1 , 15]]});
 ok !$v->check({hoge =>  0 },{hoge=> ["INT","NOT_BLANK" , ['BETWEEN' , 1 , 15]]});
+
+ok $v->check({hoge =>  "１５" },{hoge=> ["INT","NOT_BLANK" , ['BETWEEN' , 1 , 15]]});
+ok $v->check({hoge =>  "１" },{hoge=> ["INT","NOT_BLANK" , ['BETWEEN' , 1 , 15]]});
+ok !$v->check({hoge =>  "１６" },{hoge=> ["INT","NOT_BLANK" , ['BETWEEN' , 1 , 15]]});
+ok !$v->check({hoge =>  "０" },{hoge=> ["INT","NOT_BLANK" , ['BETWEEN' , 1 , 15]]});
 
 ok $v->check({hoge =>  4  },{hoge=> ["INT","NOT_BLANK" , ['BETWEEN' , 4]]});
 ok !$v->check({hoge => 4  },{hoge=> ["INT","NOT_BLANK" , ['BETWEEN' , 3]]});
