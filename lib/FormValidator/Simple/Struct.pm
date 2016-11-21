@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use FormValidator::Simple::Struct::Regex;
 use FormValidator::Simple::Struct::CharTypes;
+use FormValidator::Simple::Struct::AllowDenyStrings;
 use Carp;
 use Test::More;
 use Data::Dumper;
@@ -24,11 +25,15 @@ sub DIGIT_LENGTH_ERROR{'DIGIT_LENGTH IS WRONG'};
 sub BETWEEN_ERROR{'BETWEEN IS WRONG'};
 sub CHARS_ERROR{'NOT ALLOWED CHAR EXIST'};
 
+sub ALLOW_STRING_ERROR{'INPUT STRING IS NOT ALLOWED'};
+sub DENY_STRING_ERROR {'INPUT STRING IS NOT ALLOWED'};
+
 sub new{
     my $class = bless {} , $_[0];
     $class->load_plugin('FormValidator::Simple::Struct::CharTypes');
     $class->load_plugin('FormValidator::Simple::Struct::Regex');
     $class->load_plugin('FormValidator::Simple::Struct::AllowCharacter');
+    $class->load_plugin('FormValidator::Simple::Struct::AllowDenyStrings');
     $class;
 }
 
@@ -181,7 +186,7 @@ sub _check{
                                 die NO_SUCH_CHAR_TYPE($chars_name) unless $code;
                                 $range .= $code->();
                             }
-                            
+
                             if ($param =~ m/[$range]/){
                                 my $message = CHARS_ERROR;
                                 $self->_set_error($message, $position , $name , '');
@@ -193,6 +198,23 @@ sub _check{
                                 my $replace_string = $code->();
                                 $param =~ s/$replace_string//g;
                             }
+                        }elsif($type eq 'ALLOW_STRING'){
+                            my ($type , $other_args) = @$_;
+                            
+                            my $code = $self->can($type);
+                            unless($code->($param , $other_args)){
+                                my $message = ALLOW_STRING_ERROR;
+                                $self->_set_error($message, $position , $name , $type);
+                            }
+                        }elsif($type eq 'DENY_STRING'){
+                            my ($type , $other_args) = @$_;
+                            
+                            my $code = $self->can($type);
+                            unless($code->($param , $other_args)){
+                                my $message = DENY_STRING_ERROR;
+                                $self->_set_error($message, $position , $name , $type);
+                            }
+
                         }else{
                             croak "Not declare type:" . $type;
                         }
